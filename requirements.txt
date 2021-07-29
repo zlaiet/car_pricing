@@ -1,0 +1,12 @@
+pandas
+uvicorn
+numpy
+nest_asyncio
+fastapi
+pydantic
+requests
+xgboost
+sklearn
+matplotlib
+uvloop
+httptools

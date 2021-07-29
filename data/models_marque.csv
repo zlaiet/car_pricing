@@ -1,0 +1,54 @@
+,marque,models
+0,volkswagen,"['golf 7', 'golf 6', 'polo', 'passat cc', 'passat', 'touareg', 'golf 5', 'touran', 'caddy', 'amarok', 'jetta', 'new beetle', 'tiguan', 'traner fourgon 6.1', 'cc', 'up', 'lt', 'golf 4', 'golf 3']"
+1,jaguar,"['xe', 'xf', 'xj', 'x-type']"
+2,mercedes-benz,"['classe e', 'classe s', 'classe c', 'classe a', 'gla', 'glc', 'cls', 'ml', 'sprinter', 'classe gl', 'cla', '220', '250', '200', 'gle', 'classe v', 'clk', 'classe b']"
+3,porsche,"['cayenne', 'macan', 'panamera']"
+4,mg,"['zs', 'gs', 'hs', '6', '', '5', '3']"
+5,mazda,"['3', 'bt-50', '6', 'cx-7', '2', 'cx-5', 'cx-9']"
+6,bmw,"['sã\x89rie 3', 'x6', 'sã\x89rie 5', 'sã\x89rie 1', 'sã\x89rie 4', 'x5', 'x1', 'x3', 'x2', 'sã\x89rie 7', 'x4', 'sã\x89rie 2', 'm1']"
+7,mini,"['cooper', 'cooper s', 'cooper country man']"
+8,audi,"['q7', 'q5', 'a4', 'q3', 'a5', 'a3', 'a8', 'a6', 'tt', 'q2', 'a1']"
+9,volvo,"['s80', 'v70', 's60', 'v40 cross country']"
+10,kia,"['rio', 'cerato', 'age', 'optima', 'k2700', 'picanto', 'sorento', 'soul']"
+11,toyota,"['prado', 'land cruiser', 'yaris', 'hilux', 'c-hr', 'rav 4', 'avanza', 'corolla']"
+12,jeep,"['cherokee', 'compass', 'renegade']"
+13,ford,"['fiesta', 'ranger', 'focus', 'fusion', 'eco', 'ka', 'figo', 'explorer', 'autre', 'kuga', 'mondeo']"
+14,fiat,"['panda', '500', 'doblo', '500x', 'panda city cross', 'fiorino', 'tipo ', 'grande punto', 'palio', 'punto', 'ducato', 'siena', 'qubo', 'punto classic', 'punto evo', 'punto pop']"
+15,land,"['rover range rover', 'rover range rover ', 'rover discovery', 'rover defender', 'rover freelander']"
+16,seat,"['ateca', 'leon', 'arona', 'altea', 'ibiza', 'exeo']"
+17,hyundai,"['h-1', 'i20', 'grand i10', 'accent', 'elantra', 'santa fe', 'ix35', 'veloster', 'i10', 'creta']"
+18,wallyscar,['iris']
+19,peugeot,"['2008', '301', '407', '206', '208', '107', 'bipper', '3008', 'rifter', 'expert', 'pickup', '308', '4008', '207', '508', '206+', 'partner', '406', '1007', '106', '307', 'partner tepee', 'partner origin', '5008']"
+20,citroãn,"['c4', 'ds3', 'ds5', 'c5', 'ds4', 'berlingo ', 'nemo', 'c3', 'c-elysã\x89e', 'c1', 'ax', 'jumpy combi', 'jumper']"
+21,renault,"['kadjar', 'twingo', 'clio campus', 'megane', 'laguna', 'clio classic', 'modus', 'fluence', 'clio', 'symbol', 'r 19', 'captur', 'kangoo', 'latitude', 'r 9', 'master']"
+22,haval,"['h6', 'h9', 'h2']"
+23,suzuki,"['swift', 'vitara', 'baleno', 'ciaz']"
+24,ssangyong,"['actyon s', 'tivoli', 'xlv', 'korando']"
+25,mitsubishi,"['pajero', 'mirage', 'space star', 'l200 double cabine']"
+26,hummer,['h2']
+27,cadillac,['escalade']
+28,chevrolet,"['aveo', 'cruze', 'sonic', 'silverado', 'captiva', 'spark']"
+29,mahindra,"['kuv 100', '']"
+30,chery,"['e3', 'qq', 'tiggo 2', 'arrizo 5', 'tiggo 3']"
+31,baic,"['yx kenbo s3', 'yx kenbo s2']"
+32,dacia,"['duster', 'sandero', 'dokker', 'logan mcv', 'logan']"
+33,lancia,['ypsilon']
+34,mahindraorpio,['']
+35,nissan,"['qashqai', 'juke', 'patrol', 'micra', 'armada', 'sunny', 'navara', 'murano', 'x-trail']"
+36,tata,['xenon']
+37,iveco,['daily']
+38,dongfeng,['s50']
+39,great,"['wall h5', 'wall m4', 'wall c30']"
+40,isuzu,['d-max']
+41,chrysler,['300c']
+42,skoda,"['octavia', 'fabia']"
+43,infiniti,['g35']
+44,opel,"['astra', 'adam', 'corsa']"
+45,alfa,"['romeo giulietta', 'romeo mito']"
+46,honda,['hr-v']
+47,smart,['forfour']
+48,ds,"['3', '4']"
+49,dfsk,['k01']
+50,rover,['city rover']
+51,subaru,['impreza']
+52,dodge,['avenger']
