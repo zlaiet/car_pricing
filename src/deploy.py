@@ -201,4 +201,4 @@ def predict(received_data: CarPrice):
 
 if __name__ == "__main__":
 
-    uvicorn.run(app, host="127.0.0.1", port=2200, debug=True)
+    uvicorn.run(app, host="127.0.0.1", port=3200, debug=True)
