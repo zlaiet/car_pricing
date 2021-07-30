@@ -10,3 +10,4 @@ sklearn
 matplotlib
 uvloop
 httptools
+gunicorn
