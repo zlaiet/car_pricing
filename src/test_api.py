@@ -2,7 +2,7 @@ import requests
 import json
 
 # url = "http://127.0.0.1:2200/prediction"
-url = "https://car-price-predictor-n.herokuapp.com/"
+url = "https://car-price-predictor-n.herokuapp.com/prediction"
 payload = json.dumps(
     {
         "kilometrage": 63000.0,

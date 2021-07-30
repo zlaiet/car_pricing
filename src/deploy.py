@@ -12,9 +12,7 @@ from pydantic import BaseModel
 warnings.filterwarnings("ignore")
 
 
-def normalisation(
-    df, key_carr, key_ener, key_boite, key_trans, key_color, key_brand, key_model
-):
+def normalisation(df):
     """
     This function return Encodage of each given string(carrosorie,energie,..)
     example: user take energie as 'essence' this function return encodage of 'essence'==> 1
@@ -53,22 +51,14 @@ def normalisation(
     brand_.sort()
     model_.sort()
 
-    enc_carrosserie = carrosserie_.index(key_carr)
-    enc_energie = energie_.index(key_ener)
-    enc_boite = boite_.index(key_boite)
-    enc_transmission = transmission_.index(key_trans)
-    enc_couleur = couleur_.index(key_color)
-    enc_brand = brand_.index(key_brand)
-    enc_model = model_.index(key_model)
-
     return (
-        enc_carrosserie,
-        enc_energie,
-        enc_boite,
-        enc_transmission,
-        enc_couleur,
-        enc_brand,
-        enc_model,
+        carrosserie_,
+        energie_,
+        boite_,
+        transmission_,
+        couleur_,
+        brand_,
+        model_,
     )
 
 
@@ -87,7 +77,7 @@ class CarPrice(BaseModel):
     brand: str
 
 
-nest_asyncio.apply()
+# nest_asyncio.apply()
 
 # load data
 data = pd.read_csv(
@@ -111,6 +101,18 @@ data = pd.read_csv(
 
 # load scaller model
 standardscaler = pickle.load(open("checkpoint/StandardScaler.sav", "rb"))
+
+
+# OneHotencode of params values
+(
+    carrosserie_,
+    energie_,
+    boite_,
+    transmission_,
+    couleur_,
+    brand_,
+    model_,
+) = normalisation(data)
 
 # Begin FastAPI
 app = FastAPI()
@@ -159,18 +161,14 @@ def predict(received_data: CarPrice):
     couleur = received["couleur"]
     brand = received["brand"]
     model = received["model"]
-    # OneHotencode of params values
-    (
-        enc_carrosserie,
-        enc_energie,
-        enc_boite,
-        enc_transmission,
-        enc_couleur,
-        enc_model,
-        enc_brand,
-    ) = normalisation(
-        data, carrosserie, energie, boite, transmission, couleur, brand, model
-    )
+
+    enc_carrosserie = carrosserie_.index(carrosserie)
+    enc_energie = energie_.index(energie)
+    enc_boite = boite_.index(boite)
+    enc_transmission = transmission_.index(transmission)
+    enc_couleur = couleur_.index(couleur)
+    enc_brand = brand_.index(brand)
+    enc_model = model_.index(model)
 
     # get columns
     X_columns = data.iloc[:, :-1]
@@ -201,4 +199,4 @@ def predict(received_data: CarPrice):
 
 if __name__ == "__main__":
 
-    uvicorn.run(app, host="127.0.0.1", port=3200, debug=True)
+    uvicorn.run(app, host="127.0.0.1", port=2200, debug=True)
