@@ -253,7 +253,7 @@ def main():
             "brand",
             "price",
         ],
-        encoding="latin1",
+        encoding="utf-8",
         error_bad_lines=False,
     )
     metrics_dir = "metrics/error.csv"

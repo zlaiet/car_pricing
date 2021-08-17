@@ -3,12 +3,14 @@ from datetime import date
 
 
 def get_models(marque):
-    """model = marque.rsplit(" ", len(marque))[1 : len(marque)]
+    model = marque.rsplit(" ", len(marque))[1 : len(marque)]
     m_ = ""
     for mod in model:
-        m_ = m_ + mod + " """
-    model = marque.split(" ",1)[1]
-    return model
+        m_ = m_ + mod + " "
+
+    
+    #model = marque.split(" ",1)[1]
+    return m_
 
 
 
@@ -162,7 +164,7 @@ def main():
     print(data)
 
 
-# data.to_csv("data_after_preprocessing.csv", header=None, index=False)
+    data.to_csv("data/data_after_preprocessing.csv", header=None, index=False)
 
 if __name__ == "__main__":
     main()

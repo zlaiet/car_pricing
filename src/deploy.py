@@ -95,7 +95,7 @@ data = pd.read_csv(
         "brand",
         "price",
     ],
-    encoding="latin1",
+    encoding="utf-8",
     error_bad_lines=False,
 )
 
@@ -160,7 +160,7 @@ def predict(received_data: CarPrice):
     transmission = received["transmission"]
     couleur = received["couleur"]
     brand = received["brand"]
-    model = received["model"]
+    model = received["model"]+" "
 
     enc_carrosserie = carrosserie_.index(carrosserie)
     enc_energie = energie_.index(energie)
