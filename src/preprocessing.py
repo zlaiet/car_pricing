@@ -3,11 +3,13 @@ from datetime import date
 
 
 def get_models(marque):
-    model = marque.rsplit(" ", len(marque))[1 : len(marque)]
+    """model = marque.rsplit(" ", len(marque))[1 : len(marque)]
     m_ = ""
     for mod in model:
-        m_ = m_ + mod + " "
-    return m_
+        m_ = m_ + mod + " """
+    model = marque.split(" ",1)[1]
+    return model
+
 
 
 def models_rand(rand):
@@ -138,7 +140,7 @@ def main():
             "couleur",
             "price",
         ],
-        encoding="latin1",
+        encoding="utf-8",
         error_bad_lines=False,
     )
     data_["model"] = data_["marque"].apply(get_models)
