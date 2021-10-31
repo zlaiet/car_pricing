@@ -8,6 +8,8 @@ import nest_asyncio
 from datetime import date
 from fastapi import FastAPI
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
+
 
 warnings.filterwarnings("ignore")
 
@@ -116,6 +118,15 @@ standardscaler = pickle.load(open("checkpoint/StandardScaler.sav", "rb"))
 
 # Begin FastAPI
 app = FastAPI()
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.on_event("startup")
