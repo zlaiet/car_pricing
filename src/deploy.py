@@ -118,14 +118,14 @@ standardscaler = pickle.load(open("checkpoint/StandardScaler.sav", "rb"))
 
 # Begin FastAPI
 app = FastAPI()
-origins = ["*"]
+origins = ["*","https://www.steer.autos"]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*","https://www.steer.autos"],
+    allow_headers=["*","https://www.steer.autos"],
 )
 
 
@@ -139,6 +139,7 @@ def load_model():
 @app.get("/")
 def index():
     return {"message": "This is the homepage of the API "}
+
 
 
 @app.post("/prediction")
