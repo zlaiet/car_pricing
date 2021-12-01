@@ -10,7 +10,6 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
-
 warnings.filterwarnings("ignore")
 
 
@@ -24,7 +23,6 @@ def normalisation(df):
         "carrosserie",
         "energie",
         "boite",
-        "transmission",
         "couleur",
         "brand",
         "model",
@@ -41,14 +39,14 @@ def normalisation(df):
     carrosserie_ = columnsValue.get("carrosserie")  # .sort()
     energie_ = columnsValue.get("energie")  # .sort()
     boite_ = columnsValue.get("boite")  # .sort()
-    transmission_ = columnsValue.get("transmission")  # .sort()
+    # transmission_ = columnsValue.get("transmission")  # .sort()
     couleur_ = columnsValue.get("couleur")  # .sort()
     brand_ = columnsValue.get("brand")  # .sort()
     model_ = columnsValue.get("model")  # .sort()
     carrosserie_.sort()
     energie_.sort()
     boite_.sort()
-    transmission_.sort()
+    # transmission_.sort()
     couleur_.sort()
     brand_.sort()
     model_.sort()
@@ -57,7 +55,6 @@ def normalisation(df):
         carrosserie_,
         energie_,
         boite_,
-        transmission_,
         couleur_,
         brand_,
         model_,
@@ -72,7 +69,6 @@ class CarPrice(BaseModel):
     energie: str
     puissance: int
     boite: str
-    transmission: str
     couleur: str
     model: str
     age: int
@@ -83,14 +79,13 @@ class CarPrice(BaseModel):
 
 # load data
 data = pd.read_csv(
-    "data/data_after_preprocessing.csv",
+    "data/data_after_preprocessing_without_tran.csv",
     names=[
         "kilometrage",
         "carrosserie",
         "energie",
         "puissance",
         "boite",
-        "transmission",
         "couleur",
         "model",
         "age",
@@ -106,20 +101,10 @@ standardscaler = pickle.load(open("checkpoint/StandardScaler.sav", "rb"))
 
 
 # OneHotencode of params values
-(
-    carrosserie_,
-    energie_,
-    boite_,
-    transmission_,
-    couleur_,
-    brand_,
-    model_,
-) = normalisation(data)
+(carrosserie_, energie_, boite_, couleur_, brand_, model_,) = normalisation(data)
 
 # Begin FastAPI
 app = FastAPI()
-origins = ["*","https://www.steer.autos"]
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -127,7 +112,6 @@ app.add_middleware(
     allow_methods=["*","https://www.steer.autos"],
     allow_headers=["*","https://www.steer.autos"],
 )
-
 
 @app.on_event("startup")
 def load_model():
@@ -139,7 +123,6 @@ def load_model():
 @app.get("/")
 def index():
     return {"message": "This is the homepage of the API "}
-
 
 
 @app.post("/prediction")
@@ -169,15 +152,13 @@ def predict(received_data: CarPrice):
     carrosserie = received["carrosserie"]
     energie = received["energie"]
     boite = received["boite"]
-    transmission = received["transmission"]
     couleur = received["couleur"]
     brand = received["brand"]
-    model = received["model"]+" "
+    model = received["model"] + " "
 
     enc_carrosserie = carrosserie_.index(carrosserie)
     enc_energie = energie_.index(energie)
     enc_boite = boite_.index(boite)
-    enc_transmission = transmission_.index(transmission)
     enc_couleur = couleur_.index(couleur)
     enc_brand = brand_.index(brand)
     enc_model = model_.index(model)
@@ -194,7 +175,6 @@ def predict(received_data: CarPrice):
                 enc_energie,
                 x[1],
                 enc_boite,
-                enc_transmission,
                 enc_couleur,
                 enc_model,
                 x[2],
