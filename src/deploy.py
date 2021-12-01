@@ -105,6 +105,16 @@ standardscaler = pickle.load(open("checkpoint/StandardScaler.sav", "rb"))
 
 # Begin FastAPI
 app = FastAPI()
+origins = ["*","https://www.steer.autos"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*","https://www.steer.autos"],
+    allow_headers=["*","https://www.steer.autos"],
+)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
