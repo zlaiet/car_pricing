@@ -111,16 +111,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*","https://www.steer.autos"],
-    allow_headers=["*","https://www.steer.autos"],
-)
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*","https://www.steer.autos"],
-    allow_headers=["*","https://www.steer.autos"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 @app.on_event("startup")
